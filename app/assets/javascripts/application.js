@@ -12,3 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require angular/angular.min
+//= require bootstrap/dist/js/bootstrap.min
+//= require gem_store

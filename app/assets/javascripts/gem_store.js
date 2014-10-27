@@ -1,3 +1,6 @@
+//= require_self
+//= require ./gem_store_app
+
 (function() {
   var app = angular.module('gemStore', ['store-directives']);
 
