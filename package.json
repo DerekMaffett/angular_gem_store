@@ -1,0 +1,14 @@
+{
+  "repository": "angular_gem_store",
+  "name": "angular_gem_store",
+  "version": "0.0.1",
+  "description": "Code School gem store",
+  "author": "Derek Maffett",
+  "devDependencies": {
+
+  },
+  "dependencies": {
+    "browserify": "*",
+    "watchify": "*"
+  }
+}

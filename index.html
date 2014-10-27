@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app='gemStore'>
+<head>
+  <title>Angular Gem Store</title>
+  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+  <script type="text/javascript" src="lib/app.js"></script>
+</head>
+<body ng-controller="StoreController as store">
+  <div class="product row" ng-repeat="product in store.products">
+    <div class="col-xs-2"></div>
+    <div class="col-xs-8">
+      <h3>
+        {{product.name}}
+        <em class="pull-right">{{product.price}}</em>
+      </h3>
+      <button ng-show="true">Add to Cart</button>
+    </div>
+    <div class="col-xs-2"></div>
+  </div>
+</body>
+</html>
