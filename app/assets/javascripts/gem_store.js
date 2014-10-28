@@ -2,5 +2,5 @@
 //= require_tree ./gem_store_app
 
 (function() {
-  var app = angular.module('gemStore', ['store-directives']);
+  var app = angular.module('GemStore', ['StoreDirectives']);
 })();

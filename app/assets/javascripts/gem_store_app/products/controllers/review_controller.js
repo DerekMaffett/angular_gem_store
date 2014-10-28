@@ -1,13 +1,13 @@
 (function() {
-  var app = angular.module('gemStore');
+  var app = angular.module('GemStore');
 
-  app.controller('ReviewController', function() {
-    this.review = {};
+  app.controller('ReviewController', ['$scope', function($scope) {
+    $scope.review = {};
 
-    this.addReview = function(product) {
-      product.reviews.push(this.review);
+    $scope.addReview = function(product) {
+      product.reviews.push($scope.review);
 
-      this.review = {};
+      $scope.review = {};
     };
-  });
+  }]);
 })();

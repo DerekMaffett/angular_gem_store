@@ -1,31 +1,31 @@
 (function() {
-  var app = angular.module('store-directives', []);
+  var app = angular.module('StoreDirectives', []);
 
   app.directive("productDescription", function() {
     return {
       restrict: 'E',
-      templateUrl: "products/product-description.html"
+      templateUrl: "<%= asset_path('assets/gem_store_app/views/products/product-specs.html') %>"
     };
   });
 
   app.directive("productReviews", function() {
     return {
       restrict: 'E',
-      templateUrl: "products/product-reviews.html"
+      templateUrl: "<%= asset_path('assets/gem_store_app/views/products/product-reviews.html') %>"
     };
   });
 
   app.directive("productSpecs", function() {
     return {
       restrict:"A",
-      templateUrl: "products/product-specs.html"
+      templateUrl: "<%= asset_path('assets/gem_store_app/views/products/product-specs.html') %>"
     };
   });
 
   app.directive("productTabs", function() {
     return {
       restrict: "E",
-      templateUrl: "products/product-tabs.html",
+      templateUrl: "<%= asset_path('assets/gem_store_app/views/products/product-specs.html') %>",
       controller: function() {
         this.tab = 1;
 
@@ -44,7 +44,7 @@
   app.directive("productGallery", function() {
     return {
       restrict: "E",
-      templateUrl: "products/product-gallery.html",
+      templateUrl: "<%= asset_path('assets/gem_store_app/views/products/product-specs.html') %>",
       controller: function() {
         this.current = 0;
         this.setCurrent = function(imageNumber){

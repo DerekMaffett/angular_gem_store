@@ -1,5 +1,5 @@
 (function() {
-  var app = angular.module('gemStore');
+  var app = angular.module('GemStore');
 
   app.controller('StoreController', ['$http', '$scope', function($http, $scope) {
     $scope.products = [];
