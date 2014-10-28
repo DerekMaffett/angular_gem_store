@@ -18,6 +18,10 @@ group :development, :test do
   gem 'web-console', '~> 2.0.0.beta4'
 end
 
+group :test do
+  gem 'minitest-rails'
+end
+
 group :production do
   gem 'rails_12factor'
   gem 'pg'

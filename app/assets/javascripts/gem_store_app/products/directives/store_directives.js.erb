@@ -3,29 +3,29 @@
 
   app.directive("productDescription", function() {
     return {
-      restrict: 'E',
-      templateUrl: "<%= asset_path('assets/gem_store_app/views/products/product-specs.html') %>"
+      restrict: 'A',
+      templateUrl: "<%= asset_path('gem_store_app/products/views/products/product-description.html') %>"
     };
   });
 
   app.directive("productReviews", function() {
     return {
       restrict: 'E',
-      templateUrl: "<%= asset_path('assets/gem_store_app/views/products/product-reviews.html') %>"
+      templateUrl: "<%= asset_path('gem_store_app/products/views/products/product-reviews.html') %>"
     };
   });
 
   app.directive("productSpecs", function() {
     return {
       restrict:"A",
-      templateUrl: "<%= asset_path('assets/gem_store_app/views/products/product-specs.html') %>"
+      templateUrl: "<%= asset_path('gem_store_app/products/views/products/product-specs.html') %>"
     };
   });
 
   app.directive("productTabs", function() {
     return {
       restrict: "E",
-      templateUrl: "<%= asset_path('assets/gem_store_app/views/products/product-specs.html') %>",
+      templateUrl: "<%= asset_path('gem_store_app/products/views/products/product-tabs.html') %>",
       controller: function() {
         this.tab = 1;
 
@@ -44,7 +44,7 @@
   app.directive("productGallery", function() {
     return {
       restrict: "E",
-      templateUrl: "<%= asset_path('assets/gem_store_app/views/products/product-specs.html') %>",
+      templateUrl: "<%= asset_path('gem_store_app/products/views/products/product-gallery.html') %>",
       controller: function() {
         this.current = 0;
         this.setCurrent = function(imageNumber){

@@ -24,5 +24,9 @@ module AngularGemStore
     config.active_record.raise_in_transactional_callbacks = true
 
     config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
+
+    config.generators do |g|
+      g.test_framework :minitest, spec: true, fixture: false
+    end
   end
 end
