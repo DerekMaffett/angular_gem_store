@@ -12,12 +12,16 @@
       <div class="list-group-item" ng-repeat="product in products">
         <h3>{{product.name}} <em class="pull-right">{{product.price | currency}}</em></h3>
 
-        <!-- Image Gallery  -->
-        <product-gallery></product-gallery>
+        <div class="row">
+          <div class="col-xs-4"></div>
+          <div class="col-xs-4">
+            <!-- Image Gallery  -->
+            <product-gallery class="text-center"></product-gallery>
 
-        <!-- Product Tabs  -->
-        <product-tabs></product-tabs>
-
+            <!-- Product Tabs  -->
+            <product-tabs></product-tabs>
+          </div>
+        </div>
       </div>
     </div>
   </div>
