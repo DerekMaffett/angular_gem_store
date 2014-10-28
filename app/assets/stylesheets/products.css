@@ -1,0 +1,10 @@
+.thumbnail {
+  width: 60px;
+  height: 60px;
+}
+
+.thumbnail-centered {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}

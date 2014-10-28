@@ -1,0 +1,28 @@
+<div data-ng-app="gemStore">
+  <div data-ng-controller="StoreController">
+    <!--  Store Header  -->
+    <header>
+      <h1 class="text-center">Flatlander Crafted Gems</h1>
+      <h2 class="text-center">- an Angular store -</h2>
+    </header>
+
+    <!--  Products Container  -->
+    <div class="list-group">
+      <!--  Product Container  -->
+      <div class="list-group-item" ng-repeat="product in products">
+        <h3>{{product.name}} <em class="pull-right">{{product.price | currency}}</em></h3>
+
+        <div class="row">
+          <div class="col-xs-4"></div>
+          <div class="col-xs-4">
+            <!-- Image Gallery  -->
+            <product-gallery class="text-center"></product-gallery>
+
+            <!-- Product Tabs  -->
+            <product-tabs></product-tabs>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
