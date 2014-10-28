@@ -1,5 +1,5 @@
 (function() {
-  var app = angular.module('gemStore');
+  var app = angular.module('GemStore');
 
   app.controller('ReviewController', ['$scope', function($scope) {
     $scope.review = {};

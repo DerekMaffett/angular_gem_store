@@ -1,5 +1,5 @@
 (function() {
-  var app = angular.module('store-directives', []);
+  var app = angular.module('StoreDirectives', []);
 
   app.directive("productDescription", function() {
     return {
