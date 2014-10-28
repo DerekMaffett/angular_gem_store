@@ -1,12 +1,11 @@
-// (function() {
-//   var app = angular.module('StoreController')
+(function() {
+  var app = angular.module('gemStore');
 
-//   app.controller('StoreController', ['$http', function($http) {
-//     var store = this;
-//     store.products = [];
+  app.controller('StoreController', ['$http', '$scope', function($http, $scope) {
+    $scope.products = [];
 
-//     $http.get('/products.json').success(function(data) {
-//       store.products = data;
-//     });
-//   }]);
-// })();
+    $http.get('/products.json').success(function(data) {
+      $scope.products = data;
+    });
+  }]);
+})();
