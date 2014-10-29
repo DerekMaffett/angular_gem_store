@@ -68,5 +68,9 @@ class ListingProductsTest < ActionDispatch::IntegrationTest
     assert_equal Mime::JSON, response.content_type
     assert_equal [], json(response)['products'][2]['reviews']
     assert_equal [], json(response)['products'][2]['images']
+    assert_equal @azurite.images.first.url,
+      json(response)['products'][0]['images'][0]['url']
   end
+
+
 end
