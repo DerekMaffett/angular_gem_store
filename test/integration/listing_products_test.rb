@@ -71,6 +71,4 @@ class ListingProductsTest < ActionDispatch::IntegrationTest
     assert_equal @azurite.images.first.url,
       json(response)['products'][0]['images'][0]['url']
   end
-
-
 end
