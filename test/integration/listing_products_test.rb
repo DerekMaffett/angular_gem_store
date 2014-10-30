@@ -78,11 +78,21 @@ class ListingProductsTest < ActionDispatch::IntegrationTest
 
     assert_equal 200, response.status
     assert_equal Mime::JSON, response.content_type
+
     assert_equal [], json(response)['products'][2]['reviews']
     assert_equal [], json(response)['products'][2]['images']
     assert_equal @azurite.images.first.url,
       json(response)['products'][0]['images'][0]['url']
     assert_equal @azurite.reviews.first.body,
       json(response)['products'][0]['reviews'][0]['body']
+  end
+
+  test 'lists products in accordance with categories' do
+    get '/apiv1/products.json?price=expensive'
+
+    assert_equal 200, response.status
+    assert_equal Mime::JSON, response.content_type
+
+    assert_equal @zircon.name, json(response)['products'][0]['name']
   end
 end
