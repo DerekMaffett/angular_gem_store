@@ -17,6 +17,18 @@ class ListingProductsTest < ActionDispatch::IntegrationTest
       { url: 'images/gem-05.gif' },
       { url: 'images/gem-09.gif' }
       ])
+    @azurite.reviews.create!([
+      {
+        stars: 5,
+        body: 'This is an awesome gem. I highly recommend it',
+        author: 'Jimmy@email.com'
+      },
+      {
+        stars: 2,
+        body: 'This gem ate my cat. Kinda sparkly, though',
+        author: 'DispleasedCatLover@email.com'
+      }
+    ])
     @bloodstone = Product.create!(
       name: 'Bloodstone',
       description: 'Some gems have hidden qualities beyond their
@@ -70,5 +82,7 @@ class ListingProductsTest < ActionDispatch::IntegrationTest
     assert_equal [], json(response)['products'][2]['images']
     assert_equal @azurite.images.first.url,
       json(response)['products'][0]['images'][0]['url']
+    assert_equal @azurite.reviews.first.body,
+      json(response)['products'][0]['reviews'][0]['body']
   end
 end

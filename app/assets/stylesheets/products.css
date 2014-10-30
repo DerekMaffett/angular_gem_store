@@ -8,3 +8,8 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.product-tabs {
+  display: inline-block;
+  margin: auto;
+}

@@ -2,12 +2,12 @@
   var app = angular.module('GemStore');
 
   app.controller('ReviewController', ['$scope', function($scope) {
-    $scope.review = {};
+    $scope.newReview = {};
 
     $scope.addReview = function(product) {
-      product.reviews.push($scope.review);
+      product.reviews.push($scope.newReview);
 
-      $scope.review = {};
+      $scope.newReview = {};
     };
   }]);
 })();

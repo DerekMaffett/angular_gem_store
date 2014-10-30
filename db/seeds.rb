@@ -12,7 +12,19 @@ azurite.images.create!([
   { url: 'images/gem-02.gif' },
   { url: 'images/gem-05.gif' },
   { url: 'images/gem-09.gif' }
-  ])
+])
+azurite.reviews.create!([
+  {
+    stars: 5,
+    body: 'This is an awesome gem. I highly recommend it',
+    author: 'Jimmy@email.com'
+  },
+  {
+    stars: 2,
+    body: 'This gem ate my cat. Kinda sparkly, though',
+    author: 'DispleasedCatLover@email.com'
+  }
+])
 bloodstone = Product.create!(
   name: 'Bloodstone',
   description: 'Some gems have hidden qualities beyond their
