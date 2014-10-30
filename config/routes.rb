@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  get 'products' => 'products#index'
-  root 'products#index'
+  namespace :apiv1 do
+    resources :products, only: :index
+  end
+  root 'angular#index'
 end
