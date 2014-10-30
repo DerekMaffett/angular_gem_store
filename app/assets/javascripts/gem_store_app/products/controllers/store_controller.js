@@ -5,7 +5,9 @@
     $scope.products = [];
 
     $scope.index = function() {
-      $http.get('/apiv1/products.json')
+      var params = window.location.search;
+      var path = '/apiv1/products.json' + params;
+      $http.get(path)
         .success(function(data) {
           $scope.products = data['products'];
         })
