@@ -1,4 +1,7 @@
 class Product < ActiveRecord::Base
+  validates :name, presence: true
+  validates :price, presence: true
+
   has_many :reviews
   has_many :images
 
