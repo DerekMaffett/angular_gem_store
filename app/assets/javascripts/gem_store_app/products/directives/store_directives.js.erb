@@ -10,7 +10,7 @@
 
   app.directive("productReviews", function() {
     return {
-      restrict: 'E',
+      restrict: 'A',
       templateUrl: "<%= asset_path('gem_store_app/products/views/reviews.html') %>"
     };
   });
@@ -24,34 +24,39 @@
 
   app.directive("productTabs", function() {
     return {
-      restrict: "E",
+      restrict: "A",
       templateUrl: "<%= asset_path('gem_store_app/products/views/tabs.html') %>",
-      controller: function() {
-        this.tab = 1;
+      controller: ['$scope', function($scope) {
+        $scope.tab = 1;
 
-        this.isSet = function(checkTab) {
-          return this.tab === checkTab;
+        $scope.isSet = function(checkTab) {
+          return $scope.tab === checkTab;
         };
 
-        this.setTab = function(activeTab) {
-          this.tab = activeTab;
+        $scope.setTab = function(activeTab) {
+          $scope.tab = activeTab;
         };
-      },
-      controllerAs: "tab"
+      }],
     };
   });
 
   app.directive("productGallery", function() {
     return {
-      restrict: "E",
+      restrict: "A",
       templateUrl: "<%= asset_path('gem_store_app/products/views/gallery.html') %>",
-      controller: function() {
-        this.current = 0;
-        this.setCurrent = function(imageNumber){
-          this.current = imageNumber || 0;
+      controller: ['$scope', function($scope) {
+        $scope.current = 0;
+        $scope.setCurrent = function(imageNumber){
+          $scope.current = imageNumber || 0;
         };
-      },
-      controllerAs: "gallery"
+      }],
+    };
+  });
+
+  app.directive('productForm', function() {
+    return {
+      restrict: 'A',
+      templateUrl: '<%= asset_path("gem_store_app/products/views/form.html") %>'
     };
   });
 })();

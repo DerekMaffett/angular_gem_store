@@ -22,6 +22,8 @@ end
 
 group :test do
   gem 'minitest-rails-capybara'
+  gem 'poltergeist'
+  gem 'launchy'
 end
 
 group :production do

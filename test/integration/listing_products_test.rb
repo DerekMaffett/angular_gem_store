@@ -2,63 +2,11 @@ require 'test_helper'
 
 class ListingProductsTest < ActionDispatch::IntegrationTest
   setup do
-    @azurite = Product.create!(
-      name: 'Azurite',
-      description: 'Some gems have hidden qualities beyond their luster,
-        beyond their shine... Azurite is one of those gems.',
-      shine: 8,
-      price: 110.50,
-      rarity: 7,
-      color: '#CCC',
-      faces: 14
-    )
-    @azurite.images.create!([
-      { url: 'images/gem-02.gif' },
-      { url: 'images/gem-05.gif' },
-      { url: 'images/gem-09.gif' }
-      ])
-    @azurite.reviews.create!([
-      {
-        stars: 5,
-        body: 'This is an awesome gem. I highly recommend it',
-        author: 'Jimmy@email.com'
-      },
-      {
-        stars: 2,
-        body: 'This gem ate my cat. Kinda sparkly, though',
-        author: 'DispleasedCatLover@email.com'
-      }
-    ])
-    @bloodstone = Product.create!(
-      name: 'Bloodstone',
-      description: 'Some gems have hidden qualities beyond their
-        luster, beyond their shine... Azurite is one of those gems.',
-      shine: 9,
-      price: 29.90,
-      rarity: 6,
-      color: '#EEE',
-      faces: 12
-    )
-    @bloodstone.images.create!([
-      { url: 'images/gem-01.gif' },
-      { url: 'images/gem-03.gif' },
-      { url: 'images/gem-04.gif' }
-    ])
-    @zircon = Product.create!(
-      name: 'Zircon',
-      description: 'Zircon is our most coveted and sought after gem.
-        You will pay much to be the proud owner of this gorgeous and
-        high shine gem.',
-      shine: 70,
-      price: 1100,
-      rarity: 2,
-      color: '#000',
-      faces: 6
-    )
+    create_products
   end
 
   test 'listing basic product features' do
-    get '/apiv1/products.json'
+    get '/apiv1/products'
 
     assert_equal 200, response.status
     assert_equal Mime::JSON, response.content_type
@@ -74,7 +22,7 @@ class ListingProductsTest < ActionDispatch::IntegrationTest
   end
 
   test 'listing products with associated reviews and images' do
-    get '/apiv1/products.json'
+    get '/apiv1/products'
 
     assert_equal 200, response.status
     assert_equal Mime::JSON, response.content_type
@@ -88,11 +36,12 @@ class ListingProductsTest < ActionDispatch::IntegrationTest
   end
 
   test 'lists products in accordance with categories' do
-    get '/apiv1/products.json?price=expensive'
+    get '/apiv1/products?price=expensive'
 
     assert_equal 200, response.status
     assert_equal Mime::JSON, response.content_type
 
     assert_equal @zircon.name, json(response)['products'][0]['name']
   end
+
 end

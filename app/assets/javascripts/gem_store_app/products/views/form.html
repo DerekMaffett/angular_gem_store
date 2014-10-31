@@ -1,0 +1,25 @@
+<fieldset class="form-group">
+  <input type="text" required data-ng-model="product.name" class="form-control" placeholder="Name" />
+</fieldset>
+<fieldset class="form-group">
+  <input type="text" data-ng-model="product.description" class="form-control" placeholder="Description" />
+</fieldset>
+<fieldset class="form-group">
+  <input type="number" required data-ng-model="product.price" class="form-control" placeholder="Price" />
+</fieldset>
+<fieldset class="form-group">
+  <input type="number" data-ng-model="product.shine" class="form-control" placeholder="Shine" />
+</fieldset>
+<fieldset class="form-group">
+  <input type="number" data-ng-model="product.rarity" class="form-control" placeholder="Rarity" />
+</fieldset>
+<fieldset class="form-group">
+  <input type="text" data-ng-model="product.color" class="form-control" placeholder="Color" />
+</fieldset>
+<fieldset class="form-group">
+  <input type="number" data-ng-model="product.faces" class="form-control" placeholder="Faces" />
+</fieldset>
+<fieldset>
+  <input type="submit" data-ng-disabled="newProductForm.$invalid" data-ng-show="!product.persisted" class="btn btn-primary pull-left" value="Add Product" />
+  <input type="submit" data-ng-disabled="updateProductForm.$invalid" data-ng-show="product.persisted" class="btn btn-primary pull-left" value="Update Product" />
+</fieldset>
