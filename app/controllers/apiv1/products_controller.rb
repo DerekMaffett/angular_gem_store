@@ -18,6 +18,20 @@ module Apiv1
       end
     end
 
+    def update
+      product = Product.find(params[:id])
+      if product.update(product_params)
+        render json: product, status: 200
+      else
+        render json: product.errors, status: 500
+      end
+    end
+
+    def destroy
+      Product.find(params[:id]).destroy
+      render nothing: true, status: 204
+    end
+
     private
 
     def product_params
