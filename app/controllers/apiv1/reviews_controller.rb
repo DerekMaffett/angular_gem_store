@@ -1,7 +1,8 @@
 module Apiv1
   class ReviewsController < ApplicationController
     def create
-      review = Review.new(review_params)
+      product = Product.find(params[:product_id])
+      review = product.reviews.build(review_params)
       if review.save
         render json: review, status: 201
       else
@@ -10,7 +11,8 @@ module Apiv1
     end
 
     def update
-      review = Review.find(params[:id])
+      product = Product.find(params[:product_id])
+      review = product.reviews.find(params[:id])
       if review.update(review_params)
         render json: review, status: 200
       else
@@ -19,7 +21,8 @@ module Apiv1
     end
 
     def destroy
-      review = Review.find(params[:id])
+      product = Product.find(params[:product_id])
+      review = product.reviews.find(params[:id])
       review.destroy
 
       render nothing: true, status: 204

@@ -52,4 +52,11 @@
       }],
     };
   });
+
+  app.directive('productForm', function() {
+    return {
+      restrict: 'A',
+      templateUrl: '<%= asset_path("gem_store_app/products/views/form.html") %>'
+    };
+  });
 })();

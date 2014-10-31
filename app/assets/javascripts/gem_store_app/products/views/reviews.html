@@ -23,17 +23,17 @@
   <!--  Review Form -->
   <h4>Submit a Review</h4>
   <fieldset class="form-group">
-    <select ng-model="newReview.stars" class="form-control" ng-options="stars for stars in [5,4,3,2,1]" title="Stars">
+    <select ng-model="newReview.stars" required class="form-control" ng-options="stars for stars in [5,4,3,2,1]" title="Stars">
       <option value>Rate the Product</option>
     </select>
   </fieldset>
   <fieldset class="form-group">
-    <textarea ng-model="newReview.body" class="form-control" placeholder="Write a short review of the product..." title="Review"></textarea>
+    <textarea ng-model="newReview.body" required class="form-control" placeholder="Write a short review of the product..." title="Review"></textarea>
   </fieldset>
   <fieldset class="form-group">
-    <input ng-model="newReview.author" type="email" class="form-control" placeholder="jimmyDean@example.org" title="Email" />
+    <input ng-model="newReview.author" required type="email" class="form-control" placeholder="jimmyDean@example.org" title="Email" />
   </fieldset>
   <fieldset class="form-group">
-    <input type="submit" class="btn btn-primary pull-right" value="Submit Review" />
+    <input type="submit" data-ng-disabled="reviewForm.$invalid" class="btn btn-primary pull-right" value="Submit Review" />
   </fieldset>
 </form>
