@@ -1,0 +1,46 @@
+<div data-ng-controller="StoreController" data-ng-init="index()">
+  <!--  Store Header  -->
+  <header>
+    <h1 class="text-center">Flatlander Crafted Gems</h1>
+    <h2 class="text-center">- an Angular store -</h2>
+  </header>
+
+  <button data-ng-click="makingNewProduct = true" data-ng-show="!makingNewProduct" class="btn btn-primary">New Gem</button>
+  <button data-ng-click="makingNewProduct = false" data-ng-show="makingNewProduct" class="btn btn-warning">Cancel</button>
+  <div data-ng-show="makingNewProduct">
+    <form name="newProductForm" product-form data-ng-submit="create(product)">
+    </form>
+  </div>
+  <div class="list-group">
+    <div data-ng-repeat="product in products">
+      <div class="list-group-item">
+        <div class="row">
+          <div class="col-xs-6">
+            <h3>{{product.name}}
+              <em class="pull-right">{{product.price | currency}}</em>
+            </h3>
+            <button data-ng-click="product.sidebar = 'edit'" data-ng-show="product.sidebar != 'edit'" class="btn btn-primary pull-left">Edit</button>
+            <button data-ng-click="product.sidebar = null" data-ng-show="product.sidebar == 'edit'" class="btn btn-warning pull-left">Cancel</button>
+            <button data-ng-click="product.sidebar = 'deleteConfirm'" class="btn btn-warning pull-left">Delete</button>
+
+            <div class="text-center">
+              <div product-gallery></div>
+              <div product-tabs></div>
+            </div>
+          </div>
+          <div data-ng-show="product.sidebar == 'deleteConfirm'" class="col-xs-6">
+            <div class="text-center">
+              <h3>Are you sure you want to delete this gem?</h3>
+              <button data-ng-click="destroy(product)" class="btn btn-primary">Delete</button>
+              <button data-ng-click="product.sidebar = null" class="btn btn-warning">Cancel</button>
+            </div>
+          </div>
+          <div data-ng-show="product.sidebar == 'edit'" class="col-xs-6">
+            <form name="updateProductForm" product-form data-ng-submit="update(product)">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

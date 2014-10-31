@@ -1,0 +1,17 @@
+(function() {
+  var app = angular.module('GemStore');
+
+  app.config(['$routeProvider', function($routeProvider) {
+    $routeProvider
+      .when('/products', {
+        templateUrl: '<%= asset_path("gem_store_app/products/views/store.html") %>'
+      })
+      .when('/users', {
+        controller: 'UsersController',
+        templateUrl: '<%= asset_path("gem_store_app/users/views/users.html") %>'
+      })
+      .otherwise({
+        redirectTo: '/products'
+      });
+  }]);
+})();
