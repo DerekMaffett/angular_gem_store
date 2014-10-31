@@ -10,17 +10,22 @@
     <div class="list-group">
       <!--  Product Container  -->
       <div class="list-group-item" ng-repeat="product in products">
-        <h3>{{product.name}} <em class="pull-right">{{product.price | currency}}</em></h3>
+
 
         <div class="row">
-          <div class="col-xs-4"></div>
-          <div class="col-xs-4 text-center">
-            <!-- Image Gallery  -->
-            <product-gallery></product-gallery>
+          <div class="col-xs-6">
+            <h3>{{product.name}}
+              <em class="pull-right">{{product.price | currency}}</em>
+            </h3>
+            <div class="text-center">
+              <!-- Image Gallery  -->
+              <product-gallery></product-gallery>
 
-            <!-- Product Tabs  -->
-            <product-tabs></product-tabs>
+              <!-- Product Tabs  -->
+              <product-tabs></product-tabs>
+            </div>
           </div>
+          <div class="col-xs-6">RESERVED FOR PRODUCT FORM</div>
         </div>
       </div>
     </div>
