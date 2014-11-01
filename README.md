@@ -10,4 +10,13 @@ functionality which allows querying for gems above a certain price.
 localhost:3000?price=expensive => returns only gems over $1000
 ```
 
+Authentication is done with Devise on the back end, communicated with via json.
+Products can only be altered by admins.
+
+Sign up to try it out at:
+
+```
+localhost:3000/#/admins
+```
+
 [Production App](https://angular-gem-store.herokuapp.com/)
