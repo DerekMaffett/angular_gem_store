@@ -16,7 +16,7 @@ class ListingProductsTest < ActionDispatch::IntegrationTest
     assert_equal Mime::JSON, response.content_type
 
     assert_equal 'Wow, very review, so data',
-      Review.find_by(author: 'doge@email.com').body
+      @azurite.reviews.find_by(author: 'doge@email.com').body
   end
 
   test 'invalid reviews cannot be posted' do

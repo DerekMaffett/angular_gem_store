@@ -28,5 +28,9 @@ module AngularGemStore
     config.generators do |g|
       g.test_framework :minitest, spec: true, fixture: false
     end
+
+    config.to_prepare do
+      DeviseController.respond_to :html, :json
+    end
   end
 end

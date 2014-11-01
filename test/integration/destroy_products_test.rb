@@ -7,6 +7,8 @@ class ListingProductsTest < ActionDispatch::IntegrationTest
   end
 
   test 'can destroy products' do
+    sign_up
+
     count = Product.count
 
     delete "/apiv1/products/#{@azurite.id}"

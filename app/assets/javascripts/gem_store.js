@@ -2,11 +2,16 @@
 //= require_tree ./gem_store_app
 
 (function() {
-  var app = angular.module('GemStore', ['StoreDirectives']);
+  var app = angular.module('GemStore', ['StoreDirectives', 'ngRoute', 'ngCookies']);
 
-  app.config(['$httpProvider', function($httpProvider) {
-    $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]')
-    .attr('content');
-    $httpProvider.defaults.headers.common.Accept = 'application/json';
-  }]);
+  app.run(['$rootScope', '$cookieStore', function($rootScope, $cookieStore) {
+
+    $rootScope.isLoggedIn = function() {
+      return $cookieStore.get('current_admin') ? true : false;
+    };
+
+    $rootScope.current_user = function() {
+      return $cookieStore.get('current_admin').email;
+    };
+  }])
 })();

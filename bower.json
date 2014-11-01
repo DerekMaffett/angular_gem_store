@@ -18,6 +18,8 @@
   ],
   "dependencies": {
     "bootstrap": "*",
-    "angular": "*"
+    "angular": "*",
+    "angular-route": "*",
+    "angular-cookies": "*"
   }
 }

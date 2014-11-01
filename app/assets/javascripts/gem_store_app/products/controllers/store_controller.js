@@ -1,10 +1,11 @@
 (function() {
   var app = angular.module('GemStore');
 
-  app.controller('StoreController', ['$http', '$scope', function($http, $scope) {
-    $scope.products = [];
-    $scope.product = {};
-    $scope.product.persisted = false;
+  app.controller('StoreController', ['$http', '$scope', '$location',
+    function($http, $scope, $location) {
+      $scope.products = [];
+      $scope.product = {};
+      $scope.product.persisted = false;
 
     $scope.index = function() {
       var params = window.location.search;
@@ -66,5 +67,9 @@
           $scope.products.splice($scope.products.indexOf(product), 1);
         })
     };
+
+    $scope.adminPath = function() {
+      $location.path('/admins');
+    }
   }]);
 })();

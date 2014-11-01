@@ -8,6 +8,8 @@ class ListingProductsTest < ActionDispatch::IntegrationTest
   end
 
   test 'can update products' do
+    sign_up
+
     patch "/apiv1/products/#{@azurite.id}",
     { product:
       { name: 'Azupalite' }
