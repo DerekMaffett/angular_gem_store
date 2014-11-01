@@ -13,7 +13,7 @@
           $scope.newAdmin = {};
           $cookieStore.put('current_admin', data);
           $scope.setForm('');
-          $location = '/products';
+          $location.path('/products');
         })
         .error(function(data, status) {
           console.log(data);
@@ -28,7 +28,7 @@
           $scope.admin = {};
           $cookieStore.put('current_admin', data);
           $scope.setForm('');
-          $location = '/products';
+          $location.path('/products');
         })
         .error(function(data, status) {
           console.log(data);
@@ -52,6 +52,10 @@
 
     $scope.setForm = function(form) {
       $scope.form = form;
+    };
+
+    $scope.productsPath = function() {
+      $location.path('/products');
     };
   }]);
 })();

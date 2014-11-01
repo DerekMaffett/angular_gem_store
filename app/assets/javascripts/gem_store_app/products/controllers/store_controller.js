@@ -68,8 +68,8 @@
         })
     };
 
-    $scope.signOut = function() {
-      $location = '/admins';
+    $scope.adminPath = function() {
+      $location.path('/admins');
     }
   }]);
 })();
