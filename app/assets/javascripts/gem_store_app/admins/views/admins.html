@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-5"></div>
+    <div class="col-xs-2">
+      <div class="upper-buttons">
+        <h2>Logged In? {{isLoggedIn()}}</h2>
+        <div data-ng-show="!isLoggedIn()">
+          <button data-ng-click="setForm('signUp')" class="btn btn-primary pull-left">Sign Up</button>
+          <button data-ng-click="setForm('signIn')" class="btn btn-primary pull-right">Sign In</button>
+        </div>
+        <div data-ng-show="isLoggedIn()">
+          <button data-ng-click="signOut()" class="btn btn-warning center-block">Sign Out</button>
+        </div>
+      </div>
+      <div class="central">
+        <form name="adminSignUp" data-ng-show="form == 'signUp'" data-ng-submit="signUp(newAdmin)">
+          <h1>Sign Up</h1>
+          <fieldset class="form-group">
+            <input type="email" required data-ng-model="newAdmin.email" class="form-control" placeholder="Email" />
+          </fieldset>
+          <fieldset class="form-group">
+            <input type="password" required data-ng-model="newAdmin.password" class="form-control" placeholder="Password">
+          </fieldset>
+          <fieldset class="form-group">
+            <input type="password" required data-ng-model="newAdmin.password_confirmation" class="form-control" placeholder="Password Confirmation">
+          </fieldset>
+          <fieldset class="form-group">
+            <input type="submit" data-ng-disabled="adminSignUp.$invalid" class="btn btn-primary" value="Sign Up">
+          </fieldset>
+        </form>
+        <form name="adminSignIn" data-ng-show="form == 'signIn'" data-ng-submit="signIn(admin)">
+          <h1>Sign In</h1>
+          <fieldset class="form-group">
+            <input type="email" required data-ng-model="admin.email" class="form-control" placeholder="Email" />
+          </fieldset>
+          <fieldset class="form-group">
+            <input type="password" required data-ng-model="admin.password" class="form-control" placeholder="Password">
+          </fieldset>
+          <fieldset class="form-group">
+            <input type="submit" data-ng-disabled="adminSignIn.$invalid" class="btn btn-primary" value="Sign In">
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <div class="col-xs-5"></div>
+  </div>
+</div>
