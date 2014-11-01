@@ -1,5 +1,7 @@
 module Apiv1
   class ProductsController < ApplicationController
+    before_action :authenticate_admin!, except: [:index]
+
     def index
       if search_price = params[:price]
         products = Product.by_price(search_price).includes(:reviews, :images)

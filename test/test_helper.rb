@@ -28,6 +28,20 @@ class ActiveSupport::TestCase
     JSON::parse(response.body)
   end
 
+  def sign_up
+    data = {
+      admin: {
+        email: 'test@email.com',
+        password: 'password',
+        password_comfirmation: 'password'
+       }
+    }.to_json
+
+    post '/admins', data,
+      { 'Accept' => 'application/json', 'Content-Type' => 'application/json' }
+
+  end
+
   def create_products
     @azurite = Product.create!(
       name: 'Azurite',

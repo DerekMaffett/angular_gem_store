@@ -7,6 +7,8 @@ class ListingProductsTest < ActionDispatch::IntegrationTest
   end
 
   test 'can post to products' do
+    sign_up
+
     post '/apiv1/products',
     { product:
       { name: 'Testurite', price: 99.99}
@@ -20,6 +22,8 @@ class ListingProductsTest < ActionDispatch::IntegrationTest
   end
 
   test 'invalid product cannot be posted' do
+    sign_up
+
     count = Product.count
 
     post '/apiv1/products',
@@ -32,5 +36,18 @@ class ListingProductsTest < ActionDispatch::IntegrationTest
     assert_equal Mime::JSON, response.content_type
 
     assert_equal count, Product.count
+  end
+
+  test 'non-logged in users cannot post new products' do
+    post '/apiv1/products',
+    { product:
+      { name: 'Testurite', price: 99.99}
+    }.to_json,
+    { 'Accept' => 'application/json', 'Content-Type' => 'application/json' }
+
+    assert_equal 401, response.status
+    assert_equal Mime::JSON, response.content_type
+
+    assert_equal 0, Product.where(name: 'Testurite').count
   end
 end

@@ -5,8 +5,10 @@
     <h2 class="text-center">- an Angular store -</h2>
   </header>
 
-  <button data-ng-click="makingNewProduct = true" data-ng-show="!makingNewProduct" class="btn btn-primary">New Gem</button>
-  <button data-ng-click="makingNewProduct = false" data-ng-show="makingNewProduct" class="btn btn-warning">Cancel</button>
+  <div data-ng-show="isLoggedIn()">
+    <button data-ng-click="makingNewProduct = true" data-ng-show="!makingNewProduct" class="btn btn-primary">New Gem</button>
+    <button data-ng-click="makingNewProduct = false" data-ng-show="makingNewProduct" class="btn btn-warning">Cancel</button>
+  </div>
   <div data-ng-show="makingNewProduct">
     <form name="newProductForm" product-form data-ng-submit="create(product)">
     </form>
@@ -19,10 +21,11 @@
             <h3>{{product.name}}
               <em class="pull-right">{{product.price | currency}}</em>
             </h3>
-            <button data-ng-click="product.sidebar = 'edit'" data-ng-show="product.sidebar != 'edit'" class="btn btn-primary pull-left">Edit</button>
-            <button data-ng-click="product.sidebar = null" data-ng-show="product.sidebar == 'edit'" class="btn btn-warning pull-left">Cancel</button>
-            <button data-ng-click="product.sidebar = 'deleteConfirm'" class="btn btn-warning pull-left">Delete</button>
-
+            <div data-ng-show="isLoggedIn()">
+              <button data-ng-click="product.sidebar = 'edit'" data-ng-show="product.sidebar != 'edit'" class="btn btn-primary pull-left">Edit</button>
+              <button data-ng-click="product.sidebar = null" data-ng-show="product.sidebar == 'edit'" class="btn btn-warning pull-left">Cancel</button>
+              <button data-ng-click="product.sidebar = 'deleteConfirm'" class="btn btn-warning pull-left">Delete</button>
+            </div>
             <div class="text-center">
               <div product-gallery></div>
               <div product-tabs></div>
