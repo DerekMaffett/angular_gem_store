@@ -7,7 +7,6 @@
   app.run(['$rootScope', '$cookieStore', function($rootScope, $cookieStore) {
 
     $rootScope.isLoggedIn = function() {
-      // console.log($cookieStore.current_user);
       return $cookieStore.get('current_admin') ? true : false;
     };
 
